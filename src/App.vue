@@ -5,7 +5,7 @@
     <h1 class="text-3xl font-bold">Hello world!</h1>
     <nav class="flex gap-3">
       <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">Messages</RouterLink>
+      <RouterLink to="/messages">Messages</RouterLink>
     </nav>
   </div>
   <main class="p-8">
