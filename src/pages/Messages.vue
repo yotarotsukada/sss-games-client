@@ -6,7 +6,6 @@ import TextInput from '../components/TextInput.vue';
 
 const SERVICE_URL = import.meta.env.VITE_SERVICE_URL || 'http://localhost:8080';
 const socket = io(SERVICE_URL, { transports: ['websocket'] });
-socket.emit('connection');
 
 const send = () => {
   socket.emit('message', input.value);
