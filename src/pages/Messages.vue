@@ -4,8 +4,8 @@ import io from 'socket.io-client';
 import Button from '../components/Button.vue';
 import TextInput from '../components/TextInput.vue';
 
-const SOCKET_URL = 'http://localhost:8080';
-const socket = io(SOCKET_URL);
+const SERVICE_URL = import.meta.env.VITE_SERVICE_URL || 'http://localhost:8080';
+const socket = io(SERVICE_URL);
 socket.emit('connection');
 
 const send = () => {
@@ -27,5 +27,3 @@ const input = ref('');
     <li v-for="message in messages">{{ message }}</li>
   </ul>
 </template>
-
-<style scoped></style>

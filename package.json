@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-    "format:fix": "prettier --write ./src/**/*.{vue,ts}"
+    "format:fix": "prettier --write ./src/**/*.{vue,ts}",
+    "prepare": "husky install"
   },
   "dependencies": {
     "axios": "^0.27.2",
@@ -18,6 +19,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.1.0",
     "autoprefixer": "^10.4.11",
+    "husky": "^8.0.0",
     "postcss": "^8.4.16",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",

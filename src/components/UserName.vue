@@ -7,6 +7,7 @@ type User = {
   name: string;
 };
 
+const SERVICE_URL = import.meta.env.VITE_SERVICE_URL || 'http://localhost:8080';
 const user: User = (
   await axios
     .create({
@@ -14,7 +15,7 @@ const user: User = (
         'Content-type': 'application/json',
       },
     })
-    .get('http://localhost:8080/user')
+    .get(`${SERVICE_URL}/user`)
 ).data;
 const text = ref<string>(user.name);
 </script>
