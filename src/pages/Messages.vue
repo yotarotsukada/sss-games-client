@@ -3,9 +3,9 @@ import { ref, Ref } from '@vue/reactivity';
 import io from 'socket.io-client';
 import Button from '../components/Button.vue';
 import TextInput from '../components/TextInput.vue';
+import { Constants } from '../constants';
 
-const SERVICE_URL = import.meta.env.VITE_SERVICE_URL || 'http://localhost:8080';
-const socket = io(SERVICE_URL, {
+const socket = io(Constants.SERVICE_URL, {
   withCredentials: true,
   transports: ['websocket'],
 });
