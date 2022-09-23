@@ -5,6 +5,7 @@ import TextInput from '../components/TextInput.vue';
 import { socketManager } from '../lib/socket';
 
 const socket = socketManager.socket('/');
+socket.open();
 socket.on('connect_error', () => {
   socket.disconnect();
   console.error(
