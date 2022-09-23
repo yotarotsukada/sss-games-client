@@ -9,6 +9,12 @@ const socket = io(Constants.SERVICE_URL, {
   withCredentials: true,
   transports: ['websocket'],
 });
+socket.on('connect_error', () => {
+  socket.disconnect();
+  console.error(
+    'Socket connection failed. Check your network and reload the page.'
+  );
+});
 
 const send = () => {
   socket.emit('message', input.value);

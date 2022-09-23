@@ -16,7 +16,4 @@ export const handlers = [
       })
     );
   }),
-  rest.get(endpoint('/socket.io'), (req, res, ctx) => {
-    return res(ctx.status(101));
-  }),
 ];
