@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from '@vue/reactivity';
-import { httpClient } from '../lib/axios';
+import { httpClient } from '@/lib/axios';
 
 type User = {
   name: string;

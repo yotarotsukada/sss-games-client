@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Fallback from '../components/Fallback.vue';
-import UserName from '../components/UserName.vue';
+import Fallback from '@/components/Fallback.vue';
+import UserName from '@/components/UserName.vue';
 </script>
 
 <template>

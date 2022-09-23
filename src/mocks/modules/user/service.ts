@@ -1,4 +1,4 @@
-import { UserType } from '../../../types/user';
+import { UserType } from '@/types/user';
 import { users } from './model';
 
 export class UserService {

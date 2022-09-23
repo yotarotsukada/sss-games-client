@@ -1,5 +1,4 @@
-import { faker } from '@faker-js/faker';
-import { CreateRoomArgs, RoomType } from '../../../types/room';
+import { CreateRoomArgs, RoomType } from '@/types/room';
 import { rooms } from './model';
 
 export class RoomService {

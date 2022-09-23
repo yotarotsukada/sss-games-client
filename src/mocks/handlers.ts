@@ -1,5 +1,5 @@
 import { rest } from 'msw';
-import { Constants } from '../constants';
+import { Constants } from '@/constants';
 import { RoomResolver } from './modules/room/resolver';
 import { UserResolver } from './modules/user/resolver';
 

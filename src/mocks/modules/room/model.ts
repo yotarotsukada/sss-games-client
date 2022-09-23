@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
-import { randBetween } from '../../../lib/random';
-import { RoomType } from '../../../types/room';
+import { randBetween } from '@/lib/random';
+import { RoomType } from '@/types/room';
 import { users } from '../user/model';
 
 export const rooms: RoomType[] = [...Array(30)].map((_, index) => {

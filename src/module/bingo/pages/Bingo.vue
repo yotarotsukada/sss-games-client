@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import Button from '../../components/Button.vue';
-import TextInput from '../../components/TextInput.vue';
-import { Constants } from '../../constants';
-import { CreateRoomArgs } from '../../types';
-import { useFetchRooms, useCreateRoomMutation } from './api';
+import Button from '@/components/Button.vue';
+import TextInput from '@/components/TextInput.vue';
+import { Constants } from '@/constants';
+import { CreateRoomArgs } from '@/types';
+import { useFetchRooms, useCreateRoomMutation } from '../api';
 
 const {
   isLoading: isRoomsLoading,

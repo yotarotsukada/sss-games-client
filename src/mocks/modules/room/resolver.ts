@@ -1,5 +1,5 @@
 import { PathParams, ResponseResolver, RestContext, RestRequest } from 'msw';
-import { CreateRoomArgs } from '../../../types';
+import { CreateRoomArgs } from '@/types';
 import { RoomService } from './service';
 
 export class RoomResolver {

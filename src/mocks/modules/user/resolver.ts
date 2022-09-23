@@ -1,5 +1,5 @@
 import { PathParams, ResponseResolver, RestContext, RestRequest } from 'msw';
-import { Constants } from '../../../constants';
+import { Constants } from '@/constants';
 import { UserService } from './service';
 
 export class UserResolver {
