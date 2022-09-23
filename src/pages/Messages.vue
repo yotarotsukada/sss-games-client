@@ -1,14 +1,10 @@
 <script setup lang="ts">
 import { ref, Ref } from '@vue/reactivity';
-import io from 'socket.io-client';
 import Button from '../components/Button.vue';
 import TextInput from '../components/TextInput.vue';
-import { Constants } from '../constants';
+import { socketManager } from '../lib/socket';
 
-const socket = io(Constants.SERVICE_URL, {
-  withCredentials: true,
-  transports: ['websocket'],
-});
+const socket = socketManager.socket('/');
 socket.on('connect_error', () => {
   socket.disconnect();
   console.error(
