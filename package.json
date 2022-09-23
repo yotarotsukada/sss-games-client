@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-    "format:fix": "prettier --write ./src/**/*.{vue,ts}",
+    "format:fix": "prettier --write 'src/**/*.{vue,ts}'",
     "prepare": "husky install"
   },
   "dependencies": {
