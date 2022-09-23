@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const props = defineProps<{
-  display: string;
+  display?: string;
 }>();
 const emits = defineEmits<{
   (e: 'onClick'): void;
