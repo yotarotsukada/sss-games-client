@@ -54,7 +54,7 @@ const createRoom = async () => {
   <Button
     v-if="isCreateRoomIdle || isCreateRoomSuccess"
     display="Create Room"
-    @on-click="createRoom"
+    @click="createRoom"
   />
   <Button v-if="isCreateRoomLoading" display="Create Room..." />
   <h3>Room Name (Required)</h3>
