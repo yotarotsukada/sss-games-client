@@ -1,5 +1,5 @@
 import { httpClient } from '@/lib/axios';
-import { CreateCardArgs, CreateRoomArgs, RoomType } from '@/types';
+import { CardType, CreateCardArgs, CreateRoomArgs, RoomType } from '@/types';
 import { useMutation, useQuery } from 'vue-query';
 
 const roomsFetcher = async (id: string): Promise<RoomType[]> => {
@@ -12,8 +12,8 @@ const roomFetcher = async (id: string): Promise<RoomType> => {
   return result.data;
 };
 
-const cardFetcher = async (data: CreateCardArgs): Promise<string> => {
-  const result = await httpClient.post('/card', data);
+const cardFetcher = async (args: CreateCardArgs): Promise<CardType> => {
+  const result = await httpClient.post('/card', args);
   return result.data;
 };
 
@@ -22,13 +22,13 @@ export const useFetchRooms = (userId: string) => {
 };
 
 export const useCreateRoomMutation = () => {
-  return useMutation((data: CreateRoomArgs) => httpClient.post('/rooms', data));
+  return useMutation((args: CreateRoomArgs) => httpClient.post('/rooms', args));
 };
 
-export const useFetchOneRoom = (roomId: string) => {
+export const useFetchRoom = (roomId: string) => {
   return useQuery(['room', roomId], () => roomFetcher(roomId));
 };
 
-export const useCreateCard = () => {
-  return useMutation((data: CreateCardArgs) => httpClient.post('/card', data));
+export const useFetchCard = () => {
+  return useMutation(['card'], (args: CreateCardArgs) => cardFetcher(args));
 };

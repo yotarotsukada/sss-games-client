@@ -5,19 +5,13 @@ import TextInput from '@/components/TextInput.vue';
 import { Constants } from '@/constants';
 import { CreateRoomArgs } from '@/types';
 import { useFetchRooms, useCreateRoomMutation } from '../api';
+import { useQueryClient } from 'vue-query';
 
-const {
-  isLoading: isRoomsLoading,
-  isError: isRoomsError,
-  data: rooms,
-  refetch: { value: refetch },
-} = useFetchRooms(Constants.CURRENT_USER_ID);
-const {
-  isLoading: isCreateRoomLoading,
-  isIdle: isCreateRoomIdle,
-  isSuccess: isCreateRoomSuccess,
-  mutate: create,
-} = useCreateRoomMutation();
+const queryClient = useQueryClient();
+const { status: fetchStatus, data: rooms } = useFetchRooms(
+  Constants.CURRENT_USER_ID
+);
+const { status: createStatus, mutate: create } = useCreateRoomMutation();
 
 const roomName = ref('');
 const roomPassword = ref('');
@@ -30,7 +24,7 @@ const createRoom = async () => {
       roomPassword.value.trim() === '' ? undefined : roomPassword.value.trim(),
   };
   create(args, {
-    onSuccess: () => refetch({ queryKey: ['rooms'] }),
+    onSuccess: () => queryClient.fetchQuery(['rooms']),
   });
   roomName.value = '';
   roomPassword.value = '';
@@ -40,8 +34,9 @@ const createRoom = async () => {
 <template>
   <h2 class="text-lg underline">Bingo</h2>
   <h3>My Rooms - {{ Constants.CURRENT_USER_ID }}</h3>
-  <div v-if="isRoomsLoading">Loading...</div>
-  <div v-else-if="isRoomsError">Error occured.</div>
+
+  <div v-if="fetchStatus === 'loading'">Loading...</div>
+  <div v-else-if="fetchStatus === 'error'">Error occured.</div>
   <div v-else-if="rooms">
     <ul>
       <li v-for="room in rooms" class="text-blue-500 underline">
@@ -51,14 +46,18 @@ const createRoom = async () => {
       </li>
     </ul>
   </div>
+
   <Button
-    v-if="isCreateRoomIdle || isCreateRoomSuccess"
+    v-if="createStatus === 'idle' || createStatus === 'success'"
     display="Create Room"
     @click="createRoom"
   />
-  <Button v-if="isCreateRoomLoading" display="Create Room..." />
-  <h3>Room Name (Required)</h3>
-  <TextInput v-model="roomName" />
-  <h3>Room Password (Optional)</h3>
-  <TextInput v-model="roomPassword" />
+  <Button v-if="createStatus === 'loading'" display="Creating..." />
+
+  <div>
+    <h3>Room Name (Required)</h3>
+    <TextInput v-model="roomName" />
+    <h3>Room Password (Optional)</h3>
+    <TextInput v-model="roomPassword" />
+  </div>
 </template>
