@@ -1,4 +1,4 @@
-import { CardType, CreateCardArgs } from '@/types/card';
+import { CreateCardArgs } from '@/types';
 import { PathParams, ResponseResolver, RestContext, RestRequest } from 'msw';
 import { CardService } from './service';
 

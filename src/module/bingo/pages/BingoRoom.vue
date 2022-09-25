@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { useRoute } from 'vue-router';
-import { useCreateCard, useFetchOneRoom } from '../api';
 import Button from '@/components/Button.vue';
 import TextInput from '@/components/TextInput.vue';
+import { CreateCardArgs } from '@/types';
 import { ref } from 'vue';
-import { CardType, CreateCardArgs } from '@/types/card';
+import { useRoute } from 'vue-router';
+import { useCreateCard, useFetchOneRoom } from '../api';
 import BingoCard from '../components/BingoCard.vue';
 
 const route = useRoute();
