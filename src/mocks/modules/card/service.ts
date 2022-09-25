@@ -12,9 +12,11 @@ const generateCard = (seed: string | number): CardType => {
   ) as CardType;
 };
 
-export class CardService {
+class CardService {
   create = (): CardType => {
     const random = seedrandom('hoge');
     return generateCard(random());
   };
 }
+
+export const cardService = new CardService();

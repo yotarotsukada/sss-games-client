@@ -1,18 +1,17 @@
+import { Maybe } from '@/mocks/types';
 import { UserType } from '@/types/user';
 import { users } from './model';
 
-export class UserService {
+class UserService {
   private users = users;
 
   findAll = (): UserType[] => {
     return this.users;
   };
 
-  findById = (id: string): UserType => {
-    const user = this.users.find((user) => user.id === id);
-    if (!user) {
-      throw new Error('User not found');
-    }
-    return user;
+  findById = (id: string): Maybe<UserType> => {
+    return this.users.find((user) => user.id === id);
   };
 }
+
+export const userService = new UserService();

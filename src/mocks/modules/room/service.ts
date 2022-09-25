@@ -1,19 +1,16 @@
+import { Maybe } from '@/mocks/types';
 import { CreateRoomArgs, RoomType } from '@/types/room';
 import { rooms } from './model';
 
-export class RoomService {
+class RoomService {
   private rooms = rooms;
 
   public findAll = (): RoomType[] => {
     return this.rooms;
   };
 
-  public findById = (id: string): RoomType => {
-    const room = this.rooms.find((room) => room.id === id);
-    if (!room) {
-      throw new Error('Room not found');
-    }
-    return room;
+  public findById = (id: string): Maybe<RoomType> => {
+    return this.rooms.find((room) => room.id === id);
   };
 
   public findByOwnerId = (ownerId: string): RoomType[] => {
@@ -38,3 +35,5 @@ export class RoomService {
     return room;
   };
 }
+
+export const roomService = new RoomService();
