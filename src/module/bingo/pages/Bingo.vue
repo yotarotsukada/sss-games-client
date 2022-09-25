@@ -17,9 +17,14 @@ const roomName = ref('');
 const roomPassword = ref('');
 
 const createRoom = async () => {
+  const name = roomName.value.trim();
+  if (name === '') {
+    return alert('You need to enter room name!');
+  }
+
   const args: CreateRoomArgs = {
     ownerId: Constants.CURRENT_USER_ID,
-    name: roomName.value.trim() === '' ? 'no-name' : roomName.value.trim(),
+    name,
     password:
       roomPassword.value.trim() === '' ? undefined : roomPassword.value.trim(),
   };
