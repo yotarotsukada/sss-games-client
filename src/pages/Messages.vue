@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { ref, Ref } from '@vue/reactivity';
-import Button from '../components/Button.vue';
-import TextInput from '../components/TextInput.vue';
-import { socketManager } from '../lib/socket';
+import Button from '@/components/Button.vue';
+import TextInput from '@/components/TextInput.vue';
+import { socketManager } from '@/lib/socket';
 
 const socket = socketManager.socket('/');
+socket.open();
 socket.on('connect_error', () => {
   socket.disconnect();
   console.error(

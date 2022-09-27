@@ -1,13 +1,13 @@
 <script setup lang="ts">
 const props = defineProps<{
-  display: string;
+  display?: string;
 }>();
 const emits = defineEmits<{
-  (e: 'onClick'): void;
+  (e: 'click'): void;
 }>();
 
 const onClick = () => {
-  emits('onClick');
+  emits('click');
 };
 </script>
 
