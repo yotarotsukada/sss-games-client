@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, Ref } from '@vue/reactivity';
+import { ref, Ref } from 'vue';
 import Button from '@/components/Button.vue';
 import TextInput from '@/components/TextInput.vue';
 import { socketManager } from '@/lib/socket';
@@ -26,9 +26,11 @@ const input = ref('');
 
 <template>
   <TextInput v-model="input" />
-  <Button display="Send" @onClick="send" />
+  <Button display="Send" @click="send" />
   <h2 class="text-lg underline">Messages</h2>
   <ul class="flex flex-col-reverse">
-    <li v-for="message in messages">{{ message }}</li>
+    <li v-for="(message, key) in messages" :key="key">
+      {{ message }}
+    </li>
   </ul>
 </template>
