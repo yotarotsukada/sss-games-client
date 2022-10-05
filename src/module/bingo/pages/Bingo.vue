@@ -44,7 +44,7 @@ const createRoom = async () => {
   <div v-else-if="fetchStatus === 'error'">Error occured.</div>
   <div v-else-if="rooms">
     <ul>
-      <li v-for="room in rooms" class="text-blue-500 underline">
+      <li v-for="room in rooms" :key="room.id" class="text-blue-500 underline">
         <RouterLink :to="{ path: `bingo/${room.id}` }">
           #{{ room.id }} {{ room.name }} {{ room.createdAt }}
         </RouterLink>
