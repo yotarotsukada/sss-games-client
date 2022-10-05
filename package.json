@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "lint": "eslint --ext .ts,vue --ignore-path .gitignore .",
     "lint:fix": "yarn lint --fix",
-    "format:fix": "prettier --write 'src/**/*.{vue,ts}'",
+    "format:fix": "prettier -l --write 'src/**/*.{vue,ts}'",
     "prepare": "husky install"
   },
   "dependencies": {
