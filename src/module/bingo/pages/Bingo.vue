@@ -2,6 +2,8 @@
 import { ref } from 'vue';
 import Button from '@/components/Button.vue';
 import TextInput from '@/components/TextInput.vue';
+import Text from '@/components/Text.vue';
+import RoomCard from '@/module/room/RoomCard.vue';
 import { Constants } from '@/constants';
 import { CreateRoomArgs } from '@/types';
 import { useFetchRooms, useCreateRoomMutation } from '../api';
@@ -37,32 +39,69 @@ const createRoom = async () => {
 </script>
 
 <template>
-  <h2 class="text-lg underline">Bingo</h2>
-  <h3>My Rooms - {{ Constants.CURRENT_USER_ID }}</h3>
+  <div class="screen">
+    <Text :level="2">ビンゴゲーム</Text>
+    <div class="content">
+      <Text :level="3">ルーム一覧</Text>
+      <span>作成者 - {{ Constants.CURRENT_USER_ID }}</span>
+      <div v-if="fetchStatus === 'loading'">Loading...</div>
+      <div v-else-if="fetchStatus === 'error'">Error occurred.</div>
+      <div v-else-if="rooms">
+        <el-row :gutter="24">
+          <el-col
+            v-for="room in rooms"
+            :key="room.id"
+            :xs="24"
+            :sm="12"
+            :md="6"
+            class="room-card"
+          >
+            <RouterLink :to="{ path: `bingo/${room.id}` }">
+              <RoomCard :room="room" />
+            </RouterLink>
+          </el-col>
+        </el-row>
+      </div>
+    </div>
 
-  <div v-if="fetchStatus === 'loading'">Loading...</div>
-  <div v-else-if="fetchStatus === 'error'">Error occured.</div>
-  <div v-else-if="rooms">
-    <ul>
-      <li v-for="room in rooms" :key="room.id" class="text-blue-500 underline">
-        <RouterLink :to="{ path: `bingo/${room.id}` }">
-          #{{ room.id }} {{ room.name }} {{ room.createdAt }}
-        </RouterLink>
-      </li>
-    </ul>
-  </div>
-
-  <Button
-    v-if="createStatus === 'idle' || createStatus === 'success'"
-    display="Create Room"
-    @click="createRoom"
-  />
-  <Button v-if="createStatus === 'loading'" display="Creating..." />
-
-  <div>
-    <h3>Room Name (Required)</h3>
-    <TextInput v-model="roomName" />
-    <h3>Room Password (Optional)</h3>
-    <TextInput v-model="roomPassword" />
+    <div class="content">
+      <Text :level="3">新規ルーム作成</Text>
+      <div class="form">
+        <TextInput v-model="roomName" label="ルーム名" :required="true" />
+        <TextInput v-model="roomPassword" password label="パスワード" />
+      </div>
+      <Button
+        v-if="createStatus === 'idle' || createStatus === 'success'"
+        display="Create Room"
+        @click="createRoom"
+      />
+      <Button v-if="createStatus === 'loading'" display="Creating..." />
+    </div>
   </div>
 </template>
+
+<style>
+.grid-content {
+  border-radius: 4px;
+  min-height: 36px;
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.el-col {
+  margin-bottom: 24px;
+}
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+</style>
