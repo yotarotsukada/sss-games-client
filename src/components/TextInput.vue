@@ -16,8 +16,5 @@ const input = computed({
 </script>
 
 <template>
-  <input
-    v-model="input"
-    class="focus:shadow-outline appearance-none rounded border py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
-  />
+  <el-input v-model="input" placeholder="Please input" />
 </template>
