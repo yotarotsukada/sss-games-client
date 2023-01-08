@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { match } from 'ts-pattern';
-import { computed } from 'vue';
 
 const props = withDefaults(
   defineProps<{

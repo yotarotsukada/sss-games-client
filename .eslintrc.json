@@ -21,6 +21,7 @@
   ],
   "rules": {
     "vue/multi-word-component-names": "off",
-    "curly": "off"
+    "curly": "off",
+    "no-undef": "off"
   }
 }

@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { ref, Ref } from 'vue';
-import Button from '@/components/Button.vue';
-import TextInput from '@/components/TextInput.vue';
 import { socketManager } from '@/lib/socket';
 
 const socket = socketManager.socket('/');
@@ -18,7 +15,7 @@ const send = () => {
   input.value = '';
 };
 
-const messages: Ref<string[]> = ref([]);
+const messages = ref<string[]>([]);
 socket.on('message', (message: string) => messages.value.push(message));
 
 const input = ref('');

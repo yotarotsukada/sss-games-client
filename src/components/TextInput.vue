@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import Text from './Text.vue';
-import { computed } from 'vue';
-
 const props = defineProps<{
   modelValue: string;
   label?: string;

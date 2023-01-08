@@ -4,3 +4,7 @@ export abstract class Constants {
     import.meta.env.VITE_SERVICE_URL || this.DEV_SERVICE_URL;
   static readonly CURRENT_USER_ID = 'user-3';
 }
+
+export const useConstants = () => {
+  return Constants;
+};
