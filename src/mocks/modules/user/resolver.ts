@@ -1,6 +1,5 @@
 import { Constants } from '@/constants';
 import { Maybe, ResolverFunc } from '@/mocks/types';
-import { UserType } from '@/types';
 import { userService } from './service';
 
 export class UserResolver {

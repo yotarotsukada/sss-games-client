@@ -1,5 +1,4 @@
 import { Maybe, ResolverFunc } from '@/mocks/types';
-import { CreateRoomArgs, RoomType } from '@/types';
 import { roomService } from './service';
 
 export class RoomResolver {

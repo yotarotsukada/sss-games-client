@@ -1,5 +1,4 @@
 import { httpClient } from '@/lib/axios';
-import { CardType, CreateCardArgs, CreateRoomArgs, RoomType } from '@/types';
 import { useMutation, useQuery } from 'vue-query';
 
 const roomsFetcher = async (id: string): Promise<RoomType[]> => {

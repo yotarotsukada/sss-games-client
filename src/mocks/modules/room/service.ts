@@ -1,5 +1,4 @@
 import { Maybe } from '@/mocks/types';
-import { CreateRoomArgs, RoomType } from '@/types/room';
 import { rooms } from './model';
 
 class RoomService {

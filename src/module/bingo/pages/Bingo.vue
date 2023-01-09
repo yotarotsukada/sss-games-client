@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { CreateRoomArgs } from '@/types';
 import { useQueryClient } from 'vue-query';
 
 const { CURRENT_USER_ID } = useConstants();

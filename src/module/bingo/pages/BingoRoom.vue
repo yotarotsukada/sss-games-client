@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { CreateCardArgs } from '@/types';
-
 const route = useRoute();
 const roomId = route.params.id as string;
 

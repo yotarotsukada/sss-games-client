@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { RoomType } from '@/types';
 import { computed } from 'vue';
 import stc from 'string-to-color';
 import fontColorContrast from 'font-color-contrast';

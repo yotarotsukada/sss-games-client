@@ -1,4 +1,3 @@
-import { CardType } from '@/types';
 import seedrandom from 'seedrandom';
 
 const ROW_NUM = 5;

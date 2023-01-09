@@ -1,5 +1,4 @@
 import { Maybe } from '@/mocks/types';
-import { UserType } from '@/types/user';
 import { users } from './model';
 
 class UserService {

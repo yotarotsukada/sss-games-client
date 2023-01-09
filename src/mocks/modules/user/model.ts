@@ -1,5 +1,4 @@
 import { faker } from '@faker-js/faker';
-import { UserType } from '@/types/user';
 
 export const users: UserType[] = [...Array(10)].map((_, index) => {
   const now = new Date();

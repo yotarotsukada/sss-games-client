@@ -1,5 +1,4 @@
 import { ResolverFunc } from '@/mocks/types';
-import { CardType, CreateCardArgs } from '@/types';
 import { cardService } from './service';
 
 export class CardResolver {
