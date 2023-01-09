@@ -2,7 +2,7 @@ import { createApp } from 'vue';
 import '@/styles/tailwind.css';
 import '@/styles/index.css';
 import App from './App.vue';
-import router from '@/router';
+import router from '@/router/router';
 import { worker } from '@/mocks/browser';
 import { VueQueryPlugin, VueQueryPluginOptions } from 'vue-query';
 
