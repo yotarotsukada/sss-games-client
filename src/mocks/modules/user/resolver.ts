@@ -1,6 +1,7 @@
-import { Constants } from '@/constants';
 import { Maybe, ResolverFunc } from '@/mocks/types';
 import { userService } from './service';
+
+const { CURRENT_USER_ID } = useConstants();
 
 export class UserResolver {
   private userService = userService;
@@ -11,7 +12,7 @@ export class UserResolver {
     ctx
   ) => {
     try {
-      const result = await this.userService.findById(Constants.CURRENT_USER_ID);
+      const result = await this.userService.findById(CURRENT_USER_ID);
       return res(ctx.status(200), ctx.json(result));
     } catch (error) {
       return res(ctx.status(404), ctx.json(new Error()));
