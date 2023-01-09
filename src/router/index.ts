@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '@/pages/Home.vue';
 import Messages from '@/pages/Messages.vue';
-import { bingo } from '@/module';
+import { bingo } from '@/domains';
 
 const routes = [
   { path: '/', name: 'home', component: Home },

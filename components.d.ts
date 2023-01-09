@@ -7,7 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    BingoCard: typeof import('./src/module/bingo/components/BingoCard.vue')['default']
+    BingoCard: typeof import('./src/domains/bingo/components/BingoCard.vue')['default']
     Button: typeof import('./src/components/Button.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCard: typeof import('element-plus/es')['ElCard']
@@ -16,11 +16,11 @@ declare module '@vue/runtime-core' {
     ElRow: typeof import('element-plus/es')['ElRow']
     Fallback: typeof import('./src/components/Fallback.vue')['default']
     NavBar: typeof import('./src/components/NavBar.vue')['default']
-    RoomCard: typeof import('./src/module/room/components/RoomCard.vue')['default']
+    RoomCard: typeof import('./src/domains/room/components/RoomCard.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Text: typeof import('./src/components/Text.vue')['default']
     TextInput: typeof import('./src/components/TextInput.vue')['default']
-    UserName: typeof import('./src/module/user/components/UserName.vue')['default']
+    UserName: typeof import('./src/domains/user/components/UserName.vue')['default']
   }
 }
