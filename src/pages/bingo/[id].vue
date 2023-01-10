@@ -2,12 +2,12 @@
 const route = useRoute();
 const roomId = route.params.id as string;
 
-const { status: fetchStatus, data: room } = useFetchRoom(roomId);
+const { status: fetchStatus, data: room } = useFetchOneRoom(roomId);
 const {
   status: cardFetchStatus,
   data: card,
   mutate: fetchCard,
-} = useFetchCard();
+} = useFetchOneCard();
 
 const password = ref('');
 

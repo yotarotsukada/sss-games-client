@@ -12,7 +12,7 @@ export default defineConfig({
     vue(),
     AutoImport({
       imports: ['vue', 'vue-router'],
-      dirs: ['src/constants', 'src/domains/*/api'],
+      dirs: ['src/constants', 'src/domains/*/composables'],
     }),
     Components({
       dirs: ['src/components', 'src/**/components'],

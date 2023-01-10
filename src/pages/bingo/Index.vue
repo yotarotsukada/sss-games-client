@@ -4,8 +4,9 @@ import { useQueryClient } from 'vue-query';
 const { CURRENT_USER_ID } = useConstants();
 
 const queryClient = useQueryClient();
-const { status: fetchStatus, data: rooms } = useFetchRooms(CURRENT_USER_ID);
-const { status: createStatus, mutate: create } = useCreateRoomMutation();
+const { status: fetchStatus, data: rooms } =
+  useFetchRoomsByUserId(CURRENT_USER_ID);
+const { status: createStatus, mutate: create } = useCreateRoom();
 
 const roomName = ref('');
 const roomPassword = ref('');
