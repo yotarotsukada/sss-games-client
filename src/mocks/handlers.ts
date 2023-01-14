@@ -2,10 +2,10 @@ import { rest } from 'msw';
 import { mockRoom } from './data/mockRoom';
 import { mockUser } from './data/mockUser';
 
-const { DEV_SERVICE_URL } = useConstants();
+const { SERVICE_URL } = useConstants();
 
 const endpoint = (path: string) => {
-  return DEV_SERVICE_URL + path;
+  return SERVICE_URL + path;
 };
 
 export const handlers = [
