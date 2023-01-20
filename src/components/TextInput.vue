@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-
 const props = defineProps<{
   modelValue: string;
+  label?: string;
+  placeholder?: string;
+  required?: boolean;
+  password?: boolean;
 }>();
 const emits = defineEmits<{
   (e: 'update:modelValue', input: string): void;
@@ -16,8 +18,10 @@ const input = computed({
 </script>
 
 <template>
-  <input
+  <Text>{{ label }}<span v-if="required" class="text-red-400">*</span></Text>
+  <el-input
     v-model="input"
-    class="focus:shadow-outline appearance-none rounded border py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
+    :show-password="password"
+    :placeholder="placeholder"
   />
 </template>

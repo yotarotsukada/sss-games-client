@@ -1,24 +1,23 @@
 import { rest } from 'msw';
-import { Constants } from '@/constants';
-import { RoomResolver } from './modules/room/resolver';
-import { UserResolver } from './modules/user/resolver';
-import { CardResolver } from './modules/card/resolver';
+import { mockRoom } from './data/mockRoom';
+import { mockUser } from './data/mockUser';
 
-const roomResolver = new RoomResolver();
-const userResolver = new UserResolver();
-const cardResolver = new CardResolver();
+const { SERVICE_URL } = useConstants();
 
 const endpoint = (path: string) => {
-  return Constants.DEV_SERVICE_URL + path;
+  return SERVICE_URL + path;
 };
 
 export const handlers = [
-  rest.get(endpoint('/user'), userResolver.get),
+  rest.get(endpoint('/user'), (_req, res, ctx) =>
+    res(ctx.status(200), ctx.json(mockUser.one))
+  ),
 
-  rest.get(endpoint('/rooms/users/:id'), roomResolver.findByOwnerId),
-  rest.post(endpoint('/rooms'), roomResolver.create),
+  rest.get(endpoint('/rooms/users/:id'), (_req, res, ctx) =>
+    res(ctx.status(200), ctx.json(mockRoom.many))
+  ),
 
-  rest.get(endpoint('/rooms/:id'), roomResolver.findById),
-
-  rest.post(endpoint('/card'), cardResolver.create),
+  rest.get(endpoint('/rooms/:id'), (_req, res, ctx) =>
+    res(ctx.status(200), ctx.json(mockRoom.one))
+  ),
 ];

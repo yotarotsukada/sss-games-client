@@ -1,8 +1,9 @@
 import axios from 'axios';
-import { Constants } from '@/constants';
+
+const { SERVICE_URL } = useConstants();
 
 export const httpClient = axios.create({
-  baseURL: Constants.SERVICE_URL,
+  baseURL: SERVICE_URL,
   headers: {
     'Content-type': 'application/json',
   },

@@ -1,11 +1,12 @@
-import { createApp } from 'vue';
-import './style.css';
+import '@/styles/tailwind.css';
+import '@/styles/index.css';
 import App from './App.vue';
-import router from '@/router';
+import router from '@/router/router';
 import { worker } from '@/mocks/browser';
 import { VueQueryPlugin, VueQueryPluginOptions } from 'vue-query';
 
-if (process.env.NODE_ENV === 'development' || process.env.VITE_SERVICE_URL) {
+const { ENABLE_MSW } = useConstants();
+if (process.env.NODE_ENV === 'development' && ENABLE_MSW) {
   worker.start();
 }
 
