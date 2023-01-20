@@ -1,0 +1,78 @@
+const many = [
+  {
+    id: 'test-room-1',
+    ownerId: 'test-user',
+    createdAt: new Date('2020-05-05'),
+    lastUpdatedAt: new Date('2020-05-05'),
+    isOpen: true,
+    isStarted: false,
+    name: 'ビンゴルーム1',
+    password: '',
+  },
+  {
+    id: 'test-room-2',
+    ownerId: 'test-user',
+    createdAt: new Date('2022-12-31'),
+    lastUpdatedAt: new Date('2023-01-01'),
+    isOpen: true,
+    isStarted: false,
+    name: 'ビンゴルーム2',
+    password: 'pass',
+  },
+  {
+    id: 'test-room-3',
+    ownerId: 'test-user',
+    createdAt: new Date('2020-05-05'),
+    lastUpdatedAt: new Date('2020-05-05'),
+    isOpen: true,
+    isStarted: false,
+    name: 'ビンゴルーム3',
+    password: '',
+  },
+  {
+    id: 'test-room-4',
+    ownerId: 'test-user',
+    createdAt: new Date('2022-12-31'),
+    lastUpdatedAt: new Date('2023-01-01'),
+    isOpen: true,
+    isStarted: false,
+    name: 'ビンゴルーム4',
+    password: 'pass',
+  },
+  {
+    id: 'test-room-5',
+    ownerId: 'test-user',
+    createdAt: new Date('2020-05-05'),
+    lastUpdatedAt: new Date('2020-05-05'),
+    isOpen: true,
+    isStarted: false,
+    name: 'ビンゴルーム5',
+    password: '',
+  },
+  {
+    id: 'test-room-6',
+    ownerId: 'test-user',
+    createdAt: new Date('2022-12-31'),
+    lastUpdatedAt: new Date('2023-01-01'),
+    isOpen: true,
+    isStarted: false,
+    name: 'ビンゴルーム6',
+    password: 'pass',
+  },
+];
+
+const one = {
+  id: 'test-room-1',
+  ownerId: 'test-user',
+  createdAt: new Date('2020-05-05'),
+  lastUpdatedAt: new Date('2020-05-05'),
+  isOpen: true,
+  isStarted: false,
+  name: 'ビンゴルーム1',
+  password: 'pass',
+};
+
+export const mockRoom = {
+  many,
+  one,
+};

@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { ref, Ref } from '@vue/reactivity';
-import io from 'socket.io-client';
-import Button from '../components/Button.vue';
-import TextInput from '../components/TextInput.vue';
+import { socketManager } from '@/lib/socket';
 
-const SERVICE_URL = import.meta.env.VITE_SERVICE_URL || 'http://localhost:8080';
-const socket = io(SERVICE_URL, {
-  withCredentials: true,
-  transports: ['websocket'],
+const socket = socketManager.socket('/');
+socket.open();
+socket.on('connect_error', () => {
+  socket.disconnect();
+  console.error(
+    'Socket connection failed. Check your network and reload the page.'
+  );
 });
 
 const send = () => {
@@ -15,7 +15,7 @@ const send = () => {
   input.value = '';
 };
 
-const messages: Ref<string[]> = ref([]);
+const messages = ref<string[]>([]);
 socket.on('message', (message: string) => messages.value.push(message));
 
 const input = ref('');
@@ -23,9 +23,11 @@ const input = ref('');
 
 <template>
   <TextInput v-model="input" />
-  <Button display="Send" @onClick="send" />
+  <Button display="Send" @click="send" />
   <h2 class="text-lg underline">Messages</h2>
   <ul class="flex flex-col-reverse">
-    <li v-for="message in messages">{{ message }}</li>
+    <li v-for="(message, key) in messages" :key="key">
+      {{ message }}
+    </li>
   </ul>
 </template>
